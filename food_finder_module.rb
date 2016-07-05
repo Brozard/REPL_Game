@@ -199,16 +199,16 @@ module FoodFinderMethods
     end
     type("You sink your teeth into your #{food}, enjoying every last morsel.\nNaturally, you ordered all of your favorite toppings: "); trailing_and_or(food_toppings, "and")
     type(".\nBut what about your group? You slowly turn to face them, anxiously awaiting their reaction...\n\n")
-    group_pref.each do |group_pref|
-      if (food_toppings.include? group_pref[:likes]) && (food_toppings.include? group_pref[:dislikes])
-        type("...#{group_pref[:name]} is simultaneously overjoyed with the #{group_pref[:likes]} and disgusted by the #{group_pref[:dislikes]}! ")
+    group_pref.each do |pref|
+      if (food_toppings.include? pref[:likes]) && (food_toppings.include? pref[:dislikes])
+        type("...#{pref[:name]} is simultaneously overjoyed with the #{pref[:likes]} and disgusted by the #{pref[:dislikes]}! ")
         type("Confused and mouth agape, the #{(food[0...-1])} falls from their hands and mouth and onto the floor.\n")
-      elsif food_toppings.include? group_pref[:likes]
-        type("...#{group_pref[:name]} is estatic with the #{group_pref[:likes]} on the #{(food[0...-1])}!\n")
-      elsif food_toppings.include? group_pref[:dislikes]
-        type("...#{group_pref[:name]} is revolted by the #{group_pref[:dislikes]} on the #{(food[0...-1])}!\n")
+      elsif food_toppings.include? pref[:likes]
+        type("...#{pref[:name]} is estatic with the #{pref[:likes]} on the #{(food[0...-1])}!\n")
+      elsif food_toppings.include? pref[:dislikes]
+        type("...#{pref[:name]} is revolted by the #{pref[:dislikes]} on the #{(food[0...-1])}!\n")
       else
-        type("...#{group_pref[:name]} ate the #{(food[0...-1])} appreciatively.\n")
+        type("...#{pref[:name]} ate the #{(food[0...-1])} appreciatively.\n")
       end
     end
   end
