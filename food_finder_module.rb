@@ -242,11 +242,11 @@ module FoodFinderMethods
 
   def restaurant_check(typed_choice)
     case typed_choice
-    when "Pizza"
+    when "P", "Pizza"
       typed_choice = "Party Pizza"
-    when "Burger", "Burgers"
+    when "B", "Burger", "Burgers"
       typed_choice = "Burger Bash"
-    when "Taco", "Tacos"
+    when "T", "Taco", "Tacos"
       typed_choice = "Taco Town"
     end
     typed_choice
